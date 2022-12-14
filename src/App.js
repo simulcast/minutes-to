@@ -72,7 +72,7 @@ class App extends React.Component {
           <h1>{sign.line2}</h1>
           <h1>{sign.line3}</h1>
           <div className = "credit">
-            <a href={googleMapsUrl} target="_blank"><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
+            <a href={googleMapsUrl} rel="noreferrer" target="_blank"><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
           </div>
         </div>
       </div>
