@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
+import './style/reset.css'
+import './style/styles.css'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sign: {}
-    };
+    }
   }
 
   componentDidMount() {
@@ -21,8 +23,8 @@ class App extends React.Component {
         const processedRandomSign = this.processRandomSign(randomSign)
         this.setState({
           sign: processedRandomSign
-        });
-      });
+        })
+      })
   }
 
   hasMinutesToValue(data) {
@@ -37,8 +39,8 @@ class App extends React.Component {
   }
 
   chooseRandomSign(signArray) {
-    const index = Math.floor(Math.random() * signArray.length);
-    const randomSign = signArray[index];
+    const index = Math.floor(Math.random() * signArray.length)
+    const randomSign = signArray[index]
     return randomSign
   }
 
@@ -50,9 +52,9 @@ class App extends React.Component {
       "route" : randomSign["location"]["route"],
       "direction" : randomSign["location"]["direction"],
       "place" : randomSign["location"]["nearbyPlace"],
-      "line1" : randomSign["message"]["phase1"]["phase1Line1"],
-      "line2" : randomSign["message"]["phase1"]["phase1Line2"],
-      "line3" : randomSign["message"]["phase1"]["phase1Line3"],
+      "line1" : randomSign["message"]["phase1"]["phase1Line1"].trim(),
+      "line2" : randomSign["message"]["phase1"]["phase1Line2"].trim(),
+      "line3" : randomSign["message"]["phase1"]["phase1Line3"].trim(),
       "date" : randomSign["recordTimestamp"]["recordDate"],
       "time": randomSign["recordTimestamp"]["recordTime"]
     }
@@ -60,18 +62,22 @@ class App extends React.Component {
   }
 
   render() {
-    const { sign } = this.state;
+    const { sign } = this.state
     const googleMapsUrl = "http://maps.google.com/?cbll=" + sign.lat + "+," + sign.lng + "&cbp=12,20.09,,0,5&layer=c"
 
     return (
-      <div>
-        <h1>{sign.line1}</h1>
-        <h1>{sign.line2}</h1>
-        <h1>{sign.line3}</h1>
-        <a href={googleMapsUrl}><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
+      <div className = "container">
+        <div className = "roadSign">
+          <h1>{sign.line1}</h1>
+          <h1>{sign.line2}</h1>
+          <h1>{sign.line3}</h1>
+          <div className = "credit">
+            <a href={googleMapsUrl} target="_blank"><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
+          </div>
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
