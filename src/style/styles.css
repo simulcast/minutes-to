@@ -41,10 +41,10 @@ body, html {
 }
 
 a {
-    color: black;
+    color: inherit;
     text-decoration: none;
 }
 
 a:hover {
-    color: gray;
+    color: orange;
 }

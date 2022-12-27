@@ -1,6 +1,7 @@
 import React from 'react'
 import './style/reset.css'
 import './style/styles.css'
+import About from './About.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class App extends React.Component {
 
     return (
       <div className = "container">
+        <About />
         <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
           <div className = "message">
             <h1>{sign.line1}</h1>
