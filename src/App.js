@@ -83,9 +83,11 @@ class App extends React.Component {
     return (
       <div className = "container">
         <div className = "logo">
-          <img src={logo} alt="Simulcast Logo" onClick={this.refresh}></img>
+          <a href = "https://tristanfriedbergrodman.com" rel="noreferrer" target="_blank">
+            <img src={logo} alt="Simulcast Logo"></img>
+          </a>
         </div>
-        <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
+        <div className = "roadSign" onClick={this.refresh}>
           <div className = "message">
             <h1>{sign.line1}</h1>
             <h1>{sign.line2}</h1>
