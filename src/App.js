@@ -9,23 +9,34 @@ class App extends React.Component {
     this.state = {
       sign: {}
     }
+    this.refresh = this.refresh.bind(this);
+    this.fetchCaltransData = this.fetchCaltransData.bind(this);
+  }
+
+  refresh() {
+    this.fetchCaltransData()
+    console.log('refreshing')
+  }
+
+  fetchCaltransData() {
+    fetch('https://cwwp2.dot.ca.gov/data/d7/cms/cmsStatusD07.json')
+    .then(response => response.json())
+    .then(data => {
+      // Dial into the data object and turn it into an array
+      const rawData = Object.values(data)[0]
+      const signsWithValue = this.hasMinutesToValue(rawData)
+      console.log(signsWithValue)
+      const randomSign = this.chooseRandomSign(signsWithValue)["cms"]
+      console.log(randomSign)
+      const processedRandomSign = this.processRandomSign(randomSign)
+      this.setState({
+        sign: processedRandomSign
+      })
+    })
   }
 
   componentDidMount() {
-    fetch('https://cwwp2.dot.ca.gov/data/d7/cms/cmsStatusD07.json')
-      .then(response => response.json())
-      .then(data => {
-        // Dial into the data object and turn it into an array
-        const rawData = Object.values(data)[0]
-        const signsWithValue = this.hasMinutesToValue(rawData)
-        console.log(signsWithValue)
-        const randomSign = this.chooseRandomSign(signsWithValue)["cms"]
-        console.log(randomSign)
-        const processedRandomSign = this.processRandomSign(randomSign)
-        this.setState({
-          sign: processedRandomSign
-        })
-      })
+    this.fetchCaltransData()
   }
 
   hasMinutesToValue(data) {
@@ -72,9 +83,7 @@ class App extends React.Component {
     return (
       <div className = "container">
         <div className = "logo">
-          <a href = "https://tristanfriedbergrodman.com" rel="noreferrer" target="_blank">
-            <img src={logo} alt="Simulcast Logo"></img>
-          </a>
+          <img src={logo} alt="Simulcast Logo" onClick={this.refresh}></img>
         </div>
         <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
           <div className = "message">
