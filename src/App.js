@@ -2,6 +2,7 @@ import React from 'react'
 import './style/reset.css'
 import './style/styles.css'
 import logo from './logo.svg'
+import RoadSign from './RoadSign.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class App extends React.Component {
 
   refresh() {
     this.fetchCaltransData()
-    console.log('refreshing')
   }
 
   fetchCaltransData() {
@@ -78,8 +78,6 @@ class App extends React.Component {
 
   render() {
     const { sign } = this.state
-    const googleMapsUrl = "http://maps.google.com/?cbll=" + sign.lat + "+," + sign.lng + "&cbp=12,20.09,,0,5&layer=c"
-
     return (
       <div className = "container">
         <div className = "logo">
@@ -87,17 +85,7 @@ class App extends React.Component {
             <img src={logo} alt="Simulcast Logo"></img>
           </a>
         </div>
-        <div className = "roadSign" onClick={this.refresh}>
-          <div className = "message">
-            <h1>{sign.line1}</h1>
-            <h1>{sign.line2}</h1>
-            <h1>{sign.line3}</h1>
-          </div>
-          <div className = "credit">
-            <a href={googleMapsUrl} rel="noreferrer" target="_blank"><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
-            {sign.date} at {sign.time}
-          </div>
-        </div>
+        <RoadSign signData = {sign} onClick = {this.refresh}/>
       </div>
     )
   }
