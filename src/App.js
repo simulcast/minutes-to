@@ -1,7 +1,7 @@
 import React from 'react'
 import './style/reset.css'
 import './style/styles.css'
-import About from './About.jsx'
+import logo from './logo.svg'
 
 class App extends React.Component {
   constructor(props) {
@@ -71,7 +71,11 @@ class App extends React.Component {
 
     return (
       <div className = "container">
-        {/* <About /> */}
+        <div className = "logo">
+          <a href = "https://tristanfriedbergrodman.com" target="_blank">
+            <img src={logo}></img>
+          </a>
+        </div>
         <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
           <div className = "message">
             <h1>{sign.line1}</h1>

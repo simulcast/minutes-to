@@ -5,6 +5,17 @@ body, html {
     font-family: 'Inter', sans-serif;
 
 }
+
+.logo {
+    display: block;
+    position: absolute;
+    width: 50px;
+    color: white;
+    bottom: 10px;
+    right: 10px;
+
+}
+
 .container {
     background-color: black;
     height: 100vh;
