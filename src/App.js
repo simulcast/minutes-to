@@ -55,11 +55,14 @@ class App extends React.Component {
       "line1" : randomSign["message"]["phase1"]["phase1Line1"].trim(),
       "line2" : randomSign["message"]["phase1"]["phase1Line2"].trim(),
       "line3" : randomSign["message"]["phase1"]["phase1Line3"].trim(),
-      "date" : randomSign["recordTimestamp"]["recordDate"],
-      "time": randomSign["recordTimestamp"]["recordTime"]
+      // "date" : randomSign["recordTimestamp"]["recordDate"],
+      "date" : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric'}).format(new Date().getTime()),
+      "time" : new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/Los_Angeles'}).format(new Date().getTime())
+      // "time": randomSign["recordTimestamp"]["recordTime"]
     }
     return processedRandomSign
   }
+
 
   render() {
     const { sign } = this.state
@@ -67,12 +70,15 @@ class App extends React.Component {
 
     return (
       <div className = "container">
-        <div className = "roadSign">
-          <h1>{sign.line1}</h1>
-          <h1>{sign.line2}</h1>
-          <h1>{sign.line3}</h1>
+        <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
+          <div className = "message">
+            <h1>{sign.line1}</h1>
+            <h1>{sign.line2}</h1>
+            <h1>{sign.line3}</h1>
+          </div>
           <div className = "credit">
             <a href={googleMapsUrl} rel="noreferrer" target="_blank"><h3>{sign.route} {sign.direction} in {sign.place}</h3></a>
+            {sign.date} at {sign.time}
           </div>
         </div>
       </div>
