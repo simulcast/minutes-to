@@ -72,8 +72,8 @@ class App extends React.Component {
     return (
       <div className = "container">
         <div className = "logo">
-          <a href = "https://tristanfriedbergrodman.com" target="_blank">
-            <img src={logo}></img>
+          <a href = "https://tristanfriedbergrodman.com" rel="noreferrer" target="_blank">
+            <img src={logo} alt="Simulcast Logo"></img>
           </a>
         </div>
         <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
