@@ -71,7 +71,7 @@ class App extends React.Component {
 
     return (
       <div className = "container">
-        <About />
+        {/* <About /> */}
         <div className = "roadSign" style={{ backgroundColor: this.bgColor }}>
           <div className = "message">
             <h1>{sign.line1}</h1>
