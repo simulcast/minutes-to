@@ -7,7 +7,7 @@ const RoadSignContainer = styled.div`
   border: 10px solid rgb(255, 228, 179);
   color: rgb(255, 228, 179);
   min-width: 60%;
-  max-width: 90%;
+  max-width: 85%;
   font-weight: 900;
   font-size: 7.5vmin;
   line-height: 1.75em;
