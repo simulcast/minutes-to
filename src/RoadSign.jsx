@@ -26,8 +26,8 @@ const RoadSign = (props) => {
   const {signData, onClick} = props
     const googleMapsUrl = "http://maps.google.com/?cbll=" + signData.lat + "+," + signData.lng + "&cbp=12,20.09,,0,5&layer=c"
     return (
-      <RoadSignContainer onClick = {onClick}>
-        <div className = "message">
+      <RoadSignContainer>
+        <div className = "message" onClick = {onClick}>
           <h1><pre>{signData.line1}</pre></h1>
           <h1><pre>{signData.line2}</pre></h1>
           <h1><pre>{signData.line3}</pre></h1>
