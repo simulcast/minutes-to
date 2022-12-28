@@ -64,9 +64,9 @@ class App extends React.Component {
       "route" : randomSign["location"]["route"],
       "direction" : randomSign["location"]["direction"],
       "place" : randomSign["location"]["nearbyPlace"],
-      "line1" : randomSign["message"]["phase1"]["phase1Line1"].trim(),
-      "line2" : randomSign["message"]["phase1"]["phase1Line2"].trim(),
-      "line3" : randomSign["message"]["phase1"]["phase1Line3"].trim(),
+      "line1" : randomSign["message"]["phase1"]["phase1Line1"].trim().padEnd(16, " "),
+      "line2" : randomSign["message"]["phase1"]["phase1Line2"].trim().padEnd(16, " "),
+      "line3" : randomSign["message"]["phase1"]["phase1Line3"].trim().padEnd(16, " "),
       // "date" : randomSign["recordTimestamp"]["recordDate"],
       "date" : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric'}).format(new Date().getTime()),
       "time" : new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/Los_Angeles'}).format(new Date().getTime())
