@@ -6,8 +6,6 @@ const RoadSignContainer = styled.div`
   background-color: black;
   border: 15px solid rgb(255, 228, 179);
   color: rgb(255, 228, 179);
-  // min-width: 60%;
-  // max-width: 85%;
   width: 65%;
   font-weight: 900;
   font-size: 7.5vmin;
@@ -15,7 +13,6 @@ const RoadSignContainer = styled.div`
   padding: 1em;
   filter: drop-shadow(15px 10px 5px orange);
   user-select: none;
-  cursor: pointer;
   @media only screen and (max-width: 768px) {
     border: 10px solid rgb(255, 228, 179);
     font-size: 6vmin;
