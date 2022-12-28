@@ -15,6 +15,10 @@ const RoadSignContainer = styled.div`
   filter: drop-shadow(15px 10px 5px orange);
   user-select: none;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    font-size: 6.5vmin;
+  }
+
 `
 const RoadSign = (props) => {
   const {signData, onClick} = props
